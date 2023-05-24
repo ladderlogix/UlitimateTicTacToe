@@ -126,27 +126,17 @@ public class Main {
 
 	//Converts the player input to a row and coloum selection
 	public static int[] convert(int number){
-		switch(number){
-			case 1:
-				return new int[]{0, 0};
-			case 2:
-				return new int[]{0, 1};
-			case 3:
-				return new int[]{0, 2};
-			case 4:
-				return new int[]{1, 0};
-			case 5:
-				return new int[]{1, 1};
-			case 6:
-				return new int[]{1, 2};
-			case 7:
-				return new int[]{2, 0};
-			case 8:
-				return new int[]{2, 1};
-			case 9:
-				return new int[]{2, 2};
-			default:
-				return new int[]{0, 0};
-		}
+		return switch (number) {
+			case 1 -> new int[]{0, 0};
+			case 2 -> new int[]{0, 1};
+			case 3 -> new int[]{0, 2};
+			case 4 -> new int[]{1, 0};
+			case 5 -> new int[]{1, 1};
+			case 6 -> new int[]{1, 2};
+			case 7 -> new int[]{2, 0};
+			case 8 -> new int[]{2, 1};
+			case 9 -> new int[]{2, 2};
+			default -> new int[]{0, 0};
+		};
 	}
 }
