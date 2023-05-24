@@ -1,24 +1,32 @@
+//Imports the scanner class
 import java.util.*;
 public class Main {
 	public static void main(String[] args) {
+		//Defines the scanner class as input
 		Scanner input = new Scanner(System.in);
 
+		//Creates a 2d array of tictactoe boards
 		TicTacToeBoard[][] game = new TicTacToeBoard[3][3];
 		for(int i = 0; i < 3; i++){
 			for(int j = 0; j < 3; j++) {
 				game[i][j] = new TicTacToeBoard();
 			}
 		}
+
+		//Selects the middle boards as the starting board and tells player one to go first
 		game[1][1].setSeclection(true);
 		boolean player1turn = true;
 
+		//Prints out the board and adds the x and y to a broad scope
 		printBoard(game);
 		int x = 1;
 		int y = 1;
 
+		// Initializes the last board variables at a high scope
 		int lastx = 1;
 		int lasty = 1;
 
+		//Continues to play until there is a winner
 		while(!isWinner(game)){
 			if(player1turn){
 				System.out.println("Player 1's turn");
@@ -59,6 +67,7 @@ public class Main {
 		}
 	}
 
+	//Prints out the board by getting the line of every board
 	public static void printBoard(TicTacToeBoard[][] game) {
 		System.out.println("|-------|-------|-------|");
 		for(int i = 0; i < 3; i++){
@@ -79,6 +88,8 @@ public class Main {
 		}
 	}
 
+
+	//Creates a string with all the winning possibles and checks if x or o matches any of them
 	public static boolean isWinner(TicTacToeBoard[][] game) {
 		for (int a = 0; a < 8; a++) {
 			String line = switch (a) {
@@ -113,6 +124,7 @@ public class Main {
 		return false;
 	}
 
+	//Converts the player input to a row and coloum selection
 	public static int[] convert(int number){
 		switch(number){
 			case 1:
